@@ -7,9 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>@yield('title', 'Admin Dashboard')</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="css/vendor.bundle.addons.css">
+
+  <link rel="stylesheet" href="/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/css/vendor.bundle.addons.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.5.95/css/materialdesignicons.min.css">
 
@@ -17,7 +18,7 @@
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -77,7 +78,7 @@
                 <a class="nav-link" href="{{url('supplier')}}">Customers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('stock')}}">Drivers</a>
+                  <a class="nav-link" href="{{url('/admin/driver')}}">Drivers</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../../pages/ui-features/typography.html">Jobs</a>
