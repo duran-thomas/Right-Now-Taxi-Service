@@ -74,16 +74,22 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                <a class="nav-link" href="{{url('supplier')}}">Supplier</a>
+                <a class="nav-link" href="{{url('supplier')}}">Customers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('stock')}}">Stock</a>
+                  <a class="nav-link" href="{{url('stock')}}">Drivers</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../../pages/ui-features/typography.html">Jobs</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../../pages/ui-features/typography.html">User</a>
+                  <a class="nav-link" href="../../pages/ui-features/typography.html">Reviews</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/ui-features/typography.html">Requests</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/ui-features/typography.html">Routes</a>
                 </li>
               </ul>
             </div>

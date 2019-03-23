@@ -16,14 +16,14 @@ class CreateJobReviewTable extends Migration
         Schema::create('job_review', function (Blueprint $table) {
             $table->unsignedInteger('id')->unique();
             $table->unsignedInteger('jobID');
-            $table->unsignedInteger('customerID')->unique();
-            $table->unsignedInteger('driverID')->unique();
+            $table->string('customerEmail');
+            $table->unsignedInteger('driverID');
             $table->unsignedInteger('rating');
             $table->string('comment');
             $table->timestamps();
 
             $table->foreign('jobID')->references('id')->on('jobs');
-            $table->foreign('customerID')->references('customerID')->on('customer');
+            $table->foreign('customerEmail')->references('email')->on('customer');
             $table->foreign('driverID')->references('driverID')->on('driver');
         });
     }

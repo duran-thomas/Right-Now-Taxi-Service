@@ -15,7 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/admin', function(){
+    return redirect()->route("login");
+});
+
+Auth::routes(['verify'=>true]);
+
+Route::group(['middleware' => ['verified', 'auth']], function () {
+
+    Route::get('/admin/home', 'HomeController@index')->name('/admin/home');
+
+});
