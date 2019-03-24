@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Right Now Taxi Service</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -13,6 +13,10 @@
         <style>
             html, body {
                 background-color: #fff;
+                background-repeat: no-repeat;
+	            background-position: center;
+	            background-attachment: fixed;
+	            background-size: 100%;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -45,7 +49,11 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 86px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #bc1e29;
+                border-left: 6px solid teal;
+                background-color: lightgrey;             
             }
 
             .links > a {
@@ -53,6 +61,7 @@
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
+                border: 2px solid black;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -63,7 +72,7 @@
             }
         </style>
     </head>
-    <body>
+    <body background="{{ URL::asset('/')}}images/2.jpg">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,17 +90,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    Right Now Taxi Service
                 </div>
             </div>
         </div>
