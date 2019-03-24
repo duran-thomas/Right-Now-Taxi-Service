@@ -91,6 +91,16 @@
             <div class="content">
                 <div class="title m-b-md">
                     Right Now Taxi Service
+<<<<<<< HEAD
+=======
+                </div>
+
+                <div class="links">
+                    <a href="https://laravel.com/docs">Request A Cab</a>
+                    <a href="https://laracasts.com">Request A Quote</a>
+                    <a href="https://laracasts.com">About Us</a>
+                    <a href="https://laracasts.com">Contact Us</a>
+>>>>>>> da6e3f8bc99d82a18c5f4e73cc96cfbc4dbc209e
                 </div>
             </div>
         </div>

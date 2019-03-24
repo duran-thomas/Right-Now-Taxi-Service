@@ -15,15 +15,17 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->unsignedInteger('id')->unique();
-            $table->unsignedInteger('customerID')->unique();
-            $table->unsignedInteger('driverID')->unique();
+            $table->string('customerEmail');
+            $table->unsignedInteger('driverID');
             $table->string('pickUpLocation');
             $table->string('dropOffLocation');
+            $table->float('distance');
             $table->unsignedInteger('cost');
-            $table->string('status');
+            $table->string('pickUp');
+            $table->string('dropOff');
             $table->timestamps();
 
-            $table->foreign('customerID')->references('customerID')->on('customer');
+            $table->foreign('customerEmail')->references('email')->on('customer');
             $table->foreign('driverID')->references('driverID')->on('driver');
         });
     }

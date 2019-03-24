@@ -15,10 +15,11 @@ class CreateCustomerTable extends Migration
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->unsignedInteger('id')->unique();
-            $table->unsignedInteger('customerID');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('customerID')->references('id')->on('users');
         });
     }
 
