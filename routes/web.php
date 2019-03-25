@@ -15,15 +15,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('/clientpage', function () {
     return view('clientpage');
 });
 
+Route::get('/clientpg2', function () {
+    return view('clientpg2');
+});
+
+
+Route::get('/contactUs', function () {
+    return view('contactUs');
+});
+
+Route::get('/aboutUs', function () {
+    return view('aboutUs');
+});
+
+Route::get('/cabRequest', function () {
+    return view('cabRequest');
+});
+
+Route::get('/rateUs', function () {
+    return view('rateUs');
+});
+
 Auth::routes();
 
-=======
->>>>>>> da6e3f8bc99d82a18c5f4e73cc96cfbc4dbc209e
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', function(){
