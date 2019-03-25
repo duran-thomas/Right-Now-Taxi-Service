@@ -57,3 +57,4 @@ Route::group(['middleware' => ['verified', 'auth']], function () {
 });
 
 Route::resource('admin/driver', 'DriverController')->middleware('auth');
+Route::get('/Googlemaps','Googlemaps@Googlemaps');

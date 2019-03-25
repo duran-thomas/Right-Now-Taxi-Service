@@ -92,6 +92,15 @@
                 <div class="title m-b-md">
                     Right Now Taxi Service
                 </div>
+
+                <div class="links">
+                    <a href="/">Home</a>
+                    <a href="Googlemaps">Google Maps</a>
+                    <a href="/cabRequest">Request A Cab</a>
+                    <a href="">Request A Quote</a>
+                    <a href="/aboutUs">About Us</a>
+                    <a href="/contactUs">Contact Us</a>
+                </div>
             </div>
         </div>
     </body>
