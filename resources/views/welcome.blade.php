@@ -85,6 +85,7 @@
                 </div>
 
                 <div class="links">
+                    <a href="Googlemaps">Google Maps</a>
                     <a href="https://laravel.com/docs">Request A Cab</a>
                     <a href="https://laracasts.com">Request A Quote</a>
                     <a href="https://laracasts.com">About Us</a>

@@ -28,3 +28,5 @@ Route::group(['middleware' => ['verified', 'auth']], function () {
     Route::get('/admin/home', 'HomeController@index')->name('/admin/home');
 
 });
+
+Route::get('/Googlemaps','Googlemaps@Googlemaps');
