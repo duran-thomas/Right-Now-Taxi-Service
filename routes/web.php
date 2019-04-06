@@ -42,7 +42,11 @@ Route::get('/rateUs', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function(){
+    $customer = DB::table('customer')->first();
+    return view('home', compact('customer'));
+    //return View::make('home')->with('customer', $customer);
+});
 
 Route::get('/admin', function(){
     return redirect()->route("login");
@@ -58,3 +62,8 @@ Route::group(['middleware' => ['verified', 'auth']], function () {
 
 Route::resource('admin/driver', 'DriverController')->middleware('auth');
 Route::get('/Googlemaps','Googlemaps@Googlemaps');
+
+Route::resource('/customerLogin', 'CustomerLoginController');
+Route::resource('/customerRegister', 'CustomerRegisterController');
+
+Route::post('/loggedin', 'CustomerLoginController@login');

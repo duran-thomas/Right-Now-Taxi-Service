@@ -210,8 +210,8 @@
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#services">SERVICES</a></li>
         {{-- <li><a href="#portfolio">PORTFOLIO</a></li> --}}
-        <li><a href="">LOGIN</a></li>
-        <li><a href="#contact">REGISTER</a></li>
+      <li><a href="{{url('customerLogin')}}">LOGIN</a></li>
+      <li><a href="{{url('customerRegister')}}">REGISTER</a></li>
       </ul>
     </div>
   </div>
