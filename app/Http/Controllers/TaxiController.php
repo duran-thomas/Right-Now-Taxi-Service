@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Customer;
-use Illuminate\Support\Facades\Hash;
+use Driver;
 use DB;
 use View;
 
-class CustomerRegisterController extends Controller
+class TaxiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class CustomerRegisterController extends Controller
      */
     public function index()
     {
-        return view('customerRegister');
+        return view('confirmRequest');
     }
 
     /**
@@ -30,16 +29,6 @@ class CustomerRegisterController extends Controller
         //
     }
 
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'password' => ['required', 'string', 'min:6', 'confirmed'],
-    //     ]);
-    // }
-
-
     /**
      * Store a newly created resource in storage.
      *
@@ -48,18 +37,9 @@ class CustomerRegisterController extends Controller
      */
     public function store(Request $request)
     {
-
-        $customer = new Customer();
-        $customer->name = $request->name;
-        $customer->email = $request->email;
-        $hashPassword = Hash::make($request->password);
-        $customer->password = $hashPassword;
-
-        $customer->save();
-
-        $customer = DB::table('customer')->first();
-        return view('home', compact('customer'));
+        //
     }
+
     /**
      * Display the specified resource.
      *

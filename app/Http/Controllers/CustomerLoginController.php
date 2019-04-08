@@ -26,8 +26,7 @@ class CustomerLoginController extends Controller
         $customer = Customer::where('email', '=', $request->email)->first();
         $password = $request->password;
         if(Hash::check($password, $customer->password)) {
-            $customer = DB::table('customer')->first();
-            return view('home', compact('customer'));
+            return redirect('/customerHome');
         } else {
             return redirect()->back();
         }
@@ -97,5 +96,18 @@ class CustomerLoginController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function createRequest(Request $request){
+
+        $customerReq = new Customer();
+        $customerReq->name = $request->name;
+        $customerReq->customerEmail = $request->email;
+        $customerReq->requestType = $request->msgType;
+        $customerReq->messsage = $request->msg;
+
+        $customerReq->save();
+        return redirect()->back();
+
     }
 }

@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Customer;
-use Illuminate\Support\Facades\Hash;
 use DB;
 use View;
+use App\Quote;
 
-class CustomerRegisterController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,8 @@ class CustomerRegisterController extends Controller
      */
     public function index()
     {
-        return view('customerRegister');
+        $customer = DB::table('customer')->first();
+        return view('/customerHome', compact('customer'));
     }
 
     /**
@@ -30,16 +30,6 @@ class CustomerRegisterController extends Controller
         //
     }
 
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'password' => ['required', 'string', 'min:6', 'confirmed'],
-    //     ]);
-    // }
-
-
     /**
      * Store a newly created resource in storage.
      *
@@ -48,18 +38,9 @@ class CustomerRegisterController extends Controller
      */
     public function store(Request $request)
     {
-
-        $customer = new Customer();
-        $customer->name = $request->name;
-        $customer->email = $request->email;
-        $hashPassword = Hash::make($request->password);
-        $customer->password = $hashPassword;
-
-        $customer->save();
-
-        $customer = DB::table('customer')->first();
-        return view('home', compact('customer'));
+        //
     }
+
     /**
      * Display the specified resource.
      *
@@ -103,5 +84,21 @@ class CustomerRegisterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function createRequest(Request $request){
+
+        $quote = new Quote();
+        $quote->name = $request->name;
+        $quote->customerEmail = $request->email;
+        $quote->requestType = $request->msgType;
+        $quote->message = $request->msg;
+        
+        $quote->save();
+        return redirect()->back()->with('success', ['Your Request Has Been Made']);
+    }
+
+    public function getTaxi(Request $request){
+        
     }
 }

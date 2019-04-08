@@ -11,7 +11,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Login</title>
+    <title>Register</title>
    
 </head>
 <body>

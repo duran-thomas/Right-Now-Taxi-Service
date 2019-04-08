@@ -196,40 +196,40 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      {{-- <a class="navbar-brand" href="#myPage">Logo</a> --}}
+    <div class="container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+        </button>
+        {{-- <a class="navbar-brand" href="#myPage">Logo</a> --}}
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#request">Request</a></li>
+                <li><a href="#concern">Concern/Query</a></li>
+                {{-- <li><a href="#rateUs">Rate Us</a></li> --}}
+                <li class="nav-item dropdown d-none d-xl-inline-block">
+                    <a class="nav-link" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                        <span class="profile-text">Hello, {{ $customer->name }}</span>
+                        {{-- <i class="icon-user"></i>
+                        <i class="icon-double-angle-down"></i> --}}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                        <a class="dropdown-item" style="color:#303030" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">Request A Cab</a></li>
-        <li><a href="#services">Request A Quote</a></li>
-        <li class="nav-item dropdown d-none d-xl-inline-block">
-                <a class="nav-link" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                  <span class="profile-text">Hello, {{ $customer->name }}</span>
-                  {{-- <i class="icon-user"></i>
-                  <i class="icon-double-angle-down"></i> --}}
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                  <a class="dropdown-item" style="color:#303030" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                  </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                  </form>
-                </div>
-              </li>
-      </ul>
-    </div>
-  </div>
 </nav>
 
 <div class="jumbotron text-center">
@@ -238,37 +238,74 @@
 </div>
 
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>About Right Now</h2><br>
-      <h4>Looking for fast, reliable, safe and affordable transportation? Right Now Taxi Service guarantees our team has the experience and attitude to get you where you want to go. </h4><br>
-      <p>Though we are new to industry in Jamaica, Right Now Taxi has the proven expertise to get you to your destination 24 hours a day using strategies that will minimise travel time, maximise safety and ensure that your travel experience is of the highest standard. </p>
-      
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-signal logo"></span>
-    </div>
+<div id="request" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>Request A Cab</h2>
+            {{-- <form method="POST" action="{{route('stock.store')}}"> --}}
+            <form method="POST" action="/confirmRequest">
+              @csrf
+                <div class="form-group">
+                    <label>Pick Up Location</label>
+                    <input type="text" class="form-control" name="pickUp" id="pickUp">
+                </div>
+                <div class="form-group">
+                    <label>Drop Off Location</label>
+                    <input type="text" class="form-control" name="dropOff" id="dropOff">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Book!</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15176.403621313173!2d
+                -76.73941244999999!3d18.02052015!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sjm!4v1553479663552" 
+                width="700" height="350" frameborder="0" style="border:1" ></iframe>
+        </div>
   </div>
 </div>
-
 <div class="container-fluid bg-grey">
   <div class="row">
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+      <span class="glyphicon glyphicon glyphicon-file logo slideanim"></span>
     </div>
-    <div class="col-sm-8">
-      <h2>Our Services</h2><br>
-      <h4><strong>MISSION:</strong> Our mission is to facilitate excellent transportation service to our valid customers at affordable rates</h4><br>
-      <p><strong>VISION:</strong> Our vision entails an stratospheric atmosphere which comprises of excellent customer service with sophisticated transportation.
-         Right Now Taxi Service aims to provide an online automated booking services for their customers with continuous affordability and excellent customer service. </p>
+    <div class="col-sm-6 float-right">
+      <h2>Request A Quote</h2><br>
+    {{-- <form action="{{route('loggedin.createRequest')}}" method="Post"> --}}
+    <form method="post" action="/customerHome/request">
+      @csrf
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="email" id="email">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea name="msg" id="msg" cols="50" rows="10" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Type: </label>
+                <select name="msgType" id="msgType">
+                    <option value="Tour">Tour</option>
+                    <option value="Support">Support</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </div>
   </div>
 </div>
 
 <!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center">
-  <h2>SERVICES</h2>
+{{-- <div id="concern" class="container-fluid text-center">
+  <h2>Concern/Query</h2>
   <h4>What we offer</h4>
   <br>
   <div class="row slideanim">
@@ -306,11 +343,12 @@
       <p>Customised transportation solutions </p>
     </div>
   </div>
-</div>
+</div> --}}
 
 {{-- Container (Contact Section) --}}
-<div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
+
+{{-- <div id="rateUs" class="container-fluid bg-grey">
+  <h2 class="text-center">Rate Us</h2>
   <div class="row">
     <div class="col-sm-5">
       <p>Office Open 9AM-5PM</p>
@@ -336,7 +374,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <!-- Image of location/map -->
 
