@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/loggedin', function(){
+// Route::get('/home', function(){
 //     $customer = DB::table('customer')->first();
 //     return view('home', compact('customer'));
 //     //return View::make('home')->with('customer', $customer);
@@ -46,3 +46,4 @@ Route::get('/customerHome', 'CustomerController@index');
 Route::post('/customerHome/request', 'CustomerController@createRequest');
 //Route::resource('/confirmRequest', 'TaxiController');
 Route::post('confirmRequest', 'TaxiController@index');
+Route::post('/testInfo', 'TaxiController@test');

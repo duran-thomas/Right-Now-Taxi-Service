@@ -16,7 +16,8 @@ class TaxiController extends Controller
      */
     public function index()
     {
-        return view('confirmRequest');
+        $driver = DB::table('driver')->where('status', 'Active')->first();
+        return view('confirmRequest', compact('driver'));
     }
 
     /**
@@ -83,5 +84,9 @@ class TaxiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function test(Request $request){
+        dd($request);
     }
 }

@@ -208,7 +208,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#request">Request</a></li>
-                <li><a href="#concern">Concern/Query</a></li>
+                {{-- <li><a href="#concern">Concern/Query</a></li> --}}
                 {{-- <li><a href="#rateUs">Rate Us</a></li> --}}
                 <li class="nav-item dropdown d-none d-xl-inline-block">
                     <a class="nav-link" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -240,28 +240,22 @@
 <!-- Container (About Section) -->
 <div id="request" class="container-fluid">
     <div class="row">
-        <div class="col-sm-4">
-            <h2>Request A Cab</h2>
-            {{-- <form method="POST" action="{{route('stock.store')}}"> --}}
-            <form method="POST" action="/confirmRequest">
-              @csrf
-                <div class="form-group">
-                    <label>Pick Up Location</label>
-                    <input type="text" class="form-control" name="pickUp" id="pickUp">
-                </div>
-                <div class="form-group">
-                    <label>Drop Off Location</label>
-                    <input type="text" class="form-control" name="dropOff" id="dropOff">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Book!</button>
-                </div>
-            </form>
-        </div>
+        
         <div class="col-sm-6">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15176.403621313173!2d
                 -76.73941244999999!3d18.02052015!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sjm!4v1553479663552" 
                 width="700" height="350" frameborder="0" style="border:1" ></iframe>
+        </div>
+        <div class="col-sm-4">
+            <h2>Request A Cab</h2>
+            <span class="glyphicon glyphicon glyphicon-road logo slideanim"></span>
+            {{-- <form method="POST" action="{{route('stock.store')}}"> --}}
+            <form method="POST" action="/confirmRequest">
+              @csrf
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Get A Cab!</button>
+                </div>
+            </form>
         </div>
   </div>
 </div>
@@ -271,7 +265,7 @@
       <span class="glyphicon glyphicon glyphicon-file logo slideanim"></span>
     </div>
     <div class="col-sm-6 float-right">
-      <h2>Request A Quote</h2><br>
+      <h2>Make A Query</h2><br>
     {{-- <form action="{{route('loggedin.createRequest')}}" method="Post"> --}}
     <form method="post" action="/customerHome/request">
       @csrf

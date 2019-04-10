@@ -245,8 +245,8 @@
     <div class="col-sm-8">
       <h2>Our Services</h2><br>
       <h4><strong>MISSION:</strong> Our mission is to facilitate excellent transportation service to our valid customers at affordable rates</h4><br>
-      <p><strong>VISION:</strong> Our vision entails an stratospheric atmosphere which comprises of excellent customer service with sophisticated transportation.
-         Right Now Taxi Service aims to provide an online automated booking services for their customers with continuous affordability and excellent customer service. </p>
+      <p><strong>VISION:</strong> Our vision entails a stratospheric atmosphere which comprises of excellent customer service with sophisticated transportation.
+         Right Now Taxi Service aims to provide an online automated booking services for its customers with continuous affordability and excellent customer service. </p>
     </div>
   </div>
 </div>

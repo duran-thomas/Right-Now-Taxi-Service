@@ -19,6 +19,11 @@ class CreateDriverTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('contact');
+            $table->string('vehicleMake');
+            $table->string('vehicleModel');
+            $table->integer('vehicleYear');
+            $table->string('lisencePlate');
+            $table->string('routes');
             $table->string('status');
             $table->timestamps();
         });

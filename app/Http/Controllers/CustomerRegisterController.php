@@ -58,7 +58,7 @@ class CustomerRegisterController extends Controller
         $customer->save();
 
         $customer = DB::table('customer')->first();
-        return view('home', compact('customer'));
+        return view('customerHome', compact('customer'));
     }
     /**
      * Display the specified resource.
