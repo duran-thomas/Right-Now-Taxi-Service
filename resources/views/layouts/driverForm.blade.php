@@ -23,9 +23,8 @@
     <input type="text" class="form-control" placeholder="Licesne Plate" name="licensePlate" id="licensePlate">
 </div>
 <div class="form-group">
-    <input placeholder="Route" type="text" class="form-control" placeholder="Route" name="routes" id="routes">
-</div> 
-{{-- <p><a href="javascript:add_new()">Add Another Route(Max 4)</a></p> --}}
+    <input placeholder="Route" type="text" class="form-control" name="routes" id="routes">
+</div>
 
 <div class="form-group">
     <select name="status" id="status" class="form-control">

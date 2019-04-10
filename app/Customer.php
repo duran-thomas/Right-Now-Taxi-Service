@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vehicle extends Model
+class Customer extends Model
 {
-    public $table = 'vehicle';
+    public $table = 'customer';
 }

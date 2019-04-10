@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use DB;
 use View;
 use App\Driver;
-use App\Vehicle;
-use App\Route;
 
 
 class DriverController extends Controller
@@ -20,9 +18,7 @@ class DriverController extends Controller
     public function index()
     {
         $driver = DB::table('driver')->get();
-        $routes = DB::table('routes')->first();
-        $vehicle = DB::table('vehicle')->first();
-        return view::make('/admin/driver', compact('driver', 'vehicle', 'routes'));
+        return view::make('/admin/driver', compact('driver'));
     }
 
     /**
@@ -49,22 +45,14 @@ class DriverController extends Controller
         $driver->address = $request->address;
         $driver->contact = $request->contact;
         $driver->status = $request->status;
-
-        $vehicle = new Vehicle();
-        $vehicle->driverID = $request->driverID;
-        $vehicle->vehicleMake = $request->vehicleMake;
-        $vehicle->vehicleModel = $request->vehicleModel;
-        $vehicle->vehicleYear = $request->vehicleYear;
-        $vehicle->lisencePlate = $request->licensePlate;
-
-        $route = new Route();
-        $route->driverID = $request->driverID;
-        $route->routes = $request->routes;
+        $driver->vehicleMake = $request->vehicleMake;
+        $driver->vehicleModel = $request->vehicleModel;
+        $driver->vehicleYear = $request->vehicleYear;
+        $driver->lisencePlate = $request->licensePlate;
+        $driver->routes = $request->routes;
 
         //dd($request);
         $driver->save();
-        $vehicle->save();
-        $route->save();
 
         return redirect('/admin/driver');
 
@@ -76,14 +64,11 @@ class DriverController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Driver $driver, Vehicle $vehicle, Route $routes)
+    public function show(Driver $driver)
     {
         $driver = DB::table('driver')->get();
-        $vehicle = DB::table('vehicle')->get();
-        $routes = DB::table('routes')->get();
-
         
-        return view::make('admin/driver', compact($driver, $vehicle, $routes));
+        return view::make('admin/driver', compact($driver));
     }
 
     public function driverList()
@@ -102,12 +87,8 @@ class DriverController extends Controller
     public function edit(Request $request)
     {
         $driver = Driver::findOrFail($request->driverID);
-        $vehicle = Vehicle::findOrFail($request->driverID);
-        $routes = Route::findOrFail($request->driverID);
 
         $driver->update($request->all());
-        $vehicle->update($request->all());
-        $routes->update($request->all());
         return back();
     }
 
@@ -121,11 +102,7 @@ class DriverController extends Controller
     public function update(Request $request)
     {
         $driver = Driver::findOrFail($request->driverID);
-        $vehicle = Vehicle::vehicle($request->driverID);
-        $routes = Route::findOrFail($request->driverID);
         $driver->update($request->all());
-        $vehicle->update($request->all());
-        $routes->update($request->all());
         return back();
     }
 
@@ -135,9 +112,9 @@ class DriverController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $driver = Stock::findOrFail($request->driverID);
+        $driver = Driver::findOrFail($request->driverID);
 
         $driver->delete($request->all());
         return back();

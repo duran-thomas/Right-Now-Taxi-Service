@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Route extends Model
+class Quote extends Model
 {
-    public $table = 'routes';
+    public $table = 'requests';
 }

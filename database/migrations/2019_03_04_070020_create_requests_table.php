@@ -15,12 +15,11 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->string('customerEmail');
             $table->string('requestType');           
             $table->string('message');           
             $table->timestamps();
-
-            $table->foreign('customerEmail')->references('email')->on('customer');
         });
     }
 

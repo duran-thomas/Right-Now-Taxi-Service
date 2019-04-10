@@ -15,34 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/clientpage', function () {
-    return view('clientpage');
-});
-
-Route::get('/clientpg2', function () {
-    return view('clientpg2');
-});
-
-
-Route::get('/contactUs', function () {
-    return view('contactUs');
-});
-
-Route::get('/aboutUs', function () {
-    return view('aboutUs');
-});
-
-Route::get('/cabRequest', function () {
-    return view('cabRequest');
-});
-
-Route::get('/rateUs', function () {
-    return view('rateUs');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', function(){
+//     $customer = DB::table('customer')->first();
+//     return view('home', compact('customer'));
+//     //return View::make('home')->with('customer', $customer);
+// });
 
 Route::get('/admin', function(){
     return redirect()->route("login");
@@ -58,3 +37,13 @@ Route::group(['middleware' => ['verified', 'auth']], function () {
 
 Route::resource('admin/driver', 'DriverController')->middleware('auth');
 Route::get('/Googlemaps','Googlemaps@Googlemaps');
+
+Route::resource('/customerLogin', 'CustomerLoginController');
+Route::resource('/customerRegister', 'CustomerRegisterController');
+
+Route::post('/loggedin', 'customerLoginController@login');
+Route::get('/customerHome', 'CustomerController@index');
+Route::post('/customerHome/request', 'CustomerController@createRequest');
+//Route::resource('/confirmRequest', 'TaxiController');
+Route::post('confirmRequest', 'TaxiController@index');
+Route::post('/testInfo', 'TaxiController@test');
